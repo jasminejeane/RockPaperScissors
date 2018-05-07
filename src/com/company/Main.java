@@ -9,14 +9,19 @@ public class Main {
         Game game = new Game();
         char quit = ' ';
 
-        while (quit != 'N'){
-            game.play();
-            System.out.println("Press any key Play again or press 'N' to quit");
-            quit = scan.nextLine().toUpperCase().charAt(0);
+        try {
+            while (quit != 'N') {
+                game.play();
+                System.out.println("Press any key Play again or press 'N' to quit");
+                quit = scan.nextLine().toUpperCase().charAt(0);
 
+            }
+            scan.close();
+            game.viewHistory();
+        } catch (Exception e){
+            e.printStackTrace();
         }
-        scan.close();
-        game.viewHistory();
+
     }
 }
 
