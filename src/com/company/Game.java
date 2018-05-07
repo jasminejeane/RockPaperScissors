@@ -42,10 +42,11 @@ public class Game extends Items {
     }
 
     public void viewHistory(){
-        System.out.println("You have played "+ (wins + loses + ties));
-        System.out.println("You have won " + wins + " times");
-        System.out.println("You have lost " + loses + " times");
-        System.out.println("There were " + ties + " ties ..... Thanks for playing!");
+        System.out.println("Played: "+ (wins + loses + ties));
+        System.out.println("Won: " + wins);
+        System.out.println("Lost: " + loses);
+        System.out.println("Ties:" + ties);
+        System.out.println("Thanks for playing");
 
     }
 
@@ -62,13 +63,13 @@ public class Game extends Items {
     private void displayResults(){
         switch (result){
             case WIN:
-                System.out.println(player1Choice + " beats " + player2Choice + ". Player 1 Wins");
+                System.out.println("Player 1 Wins");
                 break;
             case LOSE:
-                System.out.println(player1Choice + " loses to " + player2Choice + ". Player 2 or Computer Wins");
+                System.out.println("Player 2 or Computer Wins");
                 break;
             case TIE:
-                System.out.println(player1Choice + " equal to " + player2Choice + ". It's a TIE");
+                System.out.println("It's a TIE");
                 break;
         }
     }
