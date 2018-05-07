@@ -6,9 +6,9 @@ public class Game extends GameItems {
     private CHOICES playerChoice;
     private CHOICES computerChoice;
     private RESULT result;
-    private int wins;
-    private int loses;
-    private int ties;
+    private static int wins;
+    private static int loses;
+    private static int ties;
 
     public Game(){
         super();
@@ -21,6 +21,16 @@ public class Game extends GameItems {
         playerChoice = player.getChoice();
         computerChoice = computer.getChoice();
         result = getResults();
+        displayResults();
+        stats();
+
+    }
+
+    public void displayStats(){
+        System.out.println("You have played "+ (wins + loses + ties));
+        System.out.println("You have won " + wins + " times");
+        System.out.println("You have lost " + loses + " times");
+        System.out.println("There were " + ties + " ties ..... Thanks for playing!");
 
     }
 
@@ -34,16 +44,16 @@ public class Game extends GameItems {
         }
     }
 
-    private displayResults(){
+    private void displayResults(){
         switch (result){
             case WIN:
-                System.out.println(playerChoice + " beats" + computerChoice + ". Player Wins");
+                System.out.println(playerChoice + " beats " + computerChoice + ". Player Wins");
                 break;
             case LOSE:
-                System.out.println(playerChoice + " loses to" + computerChoice + ". Computer Wins");
+                System.out.println(playerChoice + " loses to " + computerChoice + ". Computer Wins");
                 break;
             case TIE:
-                System.out.println(playerChoice + " equal to" + computerChoice + ". It's a TIE");
+                System.out.println(playerChoice + " equal to " + computerChoice + ". It's a TIE");
                 break;
         }
     }
@@ -52,6 +62,7 @@ public class Game extends GameItems {
         if(playerChoice == computerChoice){
             return RESULT.TIE;
 
+        }
             switch (playerChoice){
                 case ROCK:
                     return (computerChoice == CHOICES.SCISSORS ? RESULT.WIN : RESULT.LOSE);
@@ -61,7 +72,7 @@ public class Game extends GameItems {
                     return (computerChoice == CHOICES.PAPER ? RESULT.WIN : RESULT.LOSE);
 
             }
-        }
+
         return RESULT.LOSE;
     }
 
