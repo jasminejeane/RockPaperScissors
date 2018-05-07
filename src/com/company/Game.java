@@ -1,25 +1,40 @@
 package com.company;
+import java.util.Scanner;
+
 
 public class Game extends GameItems {
-    private Player player;
+    private Player player1;
+    private Player player2;
     private Computer computer;
-    private CHOICES playerChoice;
+    private CHOICES player1Choice;
+    private CHOICES player2Choice;
     private CHOICES computerChoice;
     private RESULT result;
+    private int playerType;
     private static int wins;
     private static int loses;
     private static int ties;
 
     public Game(){
         super();
-        player = new Player();
+        player1 = new Player();
+        player2 = new Player();
         computer = new Computer();
 
     }
 
     public void play(){
-        playerChoice = player.getChoice();
-        computerChoice = computer.getChoice();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter 1 for playing against computer or Enter 2 for two player game");
+        playerType = scan.nextInt();
+
+        if(playerType == 1){
+            player1Choice = player1.getChoice();player2Choice = computer.getChoice();
+        }else if(playerType == 2){
+            player1Choice = player1.getChoice();
+            player2Choice = player2.getChoice();
+        }
+
         result = getResults();
         displayResults();
         stats();
@@ -47,29 +62,29 @@ public class Game extends GameItems {
     private void displayResults(){
         switch (result){
             case WIN:
-                System.out.println(playerChoice + " beats " + computerChoice + ". Player Wins");
+                System.out.println(player1Choice + " beats " + player2Choice + ". Player 1 Wins");
                 break;
             case LOSE:
-                System.out.println(playerChoice + " loses to " + computerChoice + ". Computer Wins");
+                System.out.println(player1Choice + " loses to " + player2Choice + ". Player 2 or Computer Wins");
                 break;
             case TIE:
-                System.out.println(playerChoice + " equal to " + computerChoice + ". It's a TIE");
+                System.out.println(player1Choice + " equal to " + player2Choice + ". It's a TIE");
                 break;
         }
     }
 
     private RESULT getResults(){
-        if(playerChoice == computerChoice){
+        if(player1Choice == player2Choice){
             return RESULT.TIE;
 
         }
-            switch (playerChoice){
+            switch (player1Choice){
                 case ROCK:
-                    return (computerChoice == CHOICES.SCISSORS ? RESULT.WIN : RESULT.LOSE);
+                    return (player2Choice == CHOICES.SCISSORS ? RESULT.WIN : RESULT.LOSE);
                 case PAPER:
-                    return (computerChoice == CHOICES.ROCK ? RESULT.WIN : RESULT.LOSE);
+                    return (player2Choice == CHOICES.ROCK ? RESULT.WIN : RESULT.LOSE);
                 case SCISSORS:
-                    return (computerChoice == CHOICES.PAPER ? RESULT.WIN : RESULT.LOSE);
+                    return (player2Choice == CHOICES.PAPER ? RESULT.WIN : RESULT.LOSE);
 
             }
 
