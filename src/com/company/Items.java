@@ -5,7 +5,7 @@ package com.company;
 // More precisely, a Java enum type is a special kind of Java class. An enum can contain constants, methods etc.
 
 public class Items {
-    public enum CHOICES {ROCK, PAPER, SCISSORS};
-    public enum RESULT {WIN, LOSE, TIE};
+    public enum Choices {ROCK, PAPER, SCISSORS};
+    public enum Result {WIN, LOSE, TIE};
 
 }

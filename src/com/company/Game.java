@@ -6,9 +6,9 @@ public class Game extends Items {
     private Player player1;
     private Player player2;
     private Computer computer;
-    private CHOICES player1Choice;
-    private CHOICES player2Choice;
-    private RESULT result;
+    private Choices player1Choice;
+    private Choices player2Choice;
+    private Result result;
     private int playerType;
     private static int wins;
     private static int loses;
@@ -29,7 +29,8 @@ public class Game extends Items {
         playerType = scan.nextInt();
 
         if(playerType == 1){
-            player1Choice = player1.getChoice();player2Choice = computer.getChoice();
+            player1Choice = player1.getChoice();
+            player2Choice = computer.getChoice();
         }else if(playerType == 2){
             player1Choice = player1.getChoice();
             player2Choice = player2.getChoice();
@@ -51,9 +52,9 @@ public class Game extends Items {
     }
 
     private void stats(){
-        if(result == RESULT.WIN){
+        if(result == Result.WIN){
             wins++;
-        }else if(result == RESULT.LOSE){
+        }else if(result == Result.LOSE){
             loses++;
         }else {
             ties++;
@@ -74,22 +75,22 @@ public class Game extends Items {
         }
     }
 
-    private RESULT getResults(){
+    private Result getResults(){
         if(player1Choice == player2Choice){
-            return RESULT.TIE;
+            return Result.TIE;
 
         }
         switch (player1Choice){
             case ROCK:
-                return (player2Choice == CHOICES.SCISSORS ? RESULT.WIN : RESULT.LOSE);
+                return (player2Choice == Choices.SCISSORS ? Result.WIN : Result.LOSE);
             case PAPER:
-                return (player2Choice == CHOICES.ROCK ? RESULT.WIN : RESULT.LOSE);
+                return (player2Choice == Choices.ROCK ? Result.WIN : Result.LOSE);
             case SCISSORS:
-                return (player2Choice == CHOICES.PAPER ? RESULT.WIN : RESULT.LOSE);
+                return (player2Choice == Choices.PAPER ? Result.WIN : Result.LOSE);
 
         }
 
-        return RESULT.LOSE;
+        return Result.LOSE;
     }
 
 }

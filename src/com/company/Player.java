@@ -14,7 +14,7 @@ public class Player extends Items {
     }
 
 
-    public CHOICES getChoice(){
+    public Choices getChoice(){
         System.out.println("ENTER: R= Rock, P=Paper, S=Scissors");
 //        Handle incorrect capitalization of otherwise valid user input (rock, Rock, RoCk, ROCK, etc.)
         char playerChoice = scan.nextLine().toUpperCase().charAt(0);
@@ -22,11 +22,11 @@ public class Player extends Items {
 
         switch (playerChoice){
             case 'R' :
-                return CHOICES.ROCK;
+                return Choices.ROCK;
             case 'P' :
-                return CHOICES.PAPER;
+                return Choices.PAPER;
             case 'S':
-                return CHOICES.SCISSORS;
+                return Choices.SCISSORS;
             }
 //Handle invalid user input
         System.out.println("Invalid Input");
