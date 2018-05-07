@@ -6,6 +6,9 @@ public class Game extends GameItems {
     private CHOICES playerChoice;
     private CHOICES computerChoice;
     private RESULT result;
+    private int wins;
+    private int loses;
+    private int ties;
 
     public Game(){
         super();
@@ -19,6 +22,16 @@ public class Game extends GameItems {
         computerChoice = computer.getChoice();
         result = getResults();
 
+    }
+
+    private void stats(){
+        if(result == RESULT.WIN){
+            wins++;
+        }else if(result == RESULT.LOSE){
+            loses++;
+        }else {
+            ties++;
+        }
     }
 
     private displayResults(){
