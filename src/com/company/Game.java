@@ -8,7 +8,6 @@ public class Game extends Items {
     private Computer computer;
     private CHOICES player1Choice;
     private CHOICES player2Choice;
-    private CHOICES computerChoice;
     private RESULT result;
     private int playerType;
     private static int wins;
@@ -26,6 +25,7 @@ public class Game extends Items {
     public void play(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter 1 for playing against computer or Enter 2 for two player game");
+//        Get Standard Input/Output with Java using a Scanner or use Processing to get mouse / keyboard / x input
         playerType = scan.nextInt();
 
         if(playerType == 1){

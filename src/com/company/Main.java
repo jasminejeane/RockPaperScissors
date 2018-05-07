@@ -18,7 +18,9 @@ public class Main {
             }
             scan.close();
             game.viewHistory();
-        } catch (Exception e){
+        }
+//        Incorporate Exception Handling to make sure your game crashes gracefully if it receives bad input
+        catch (Exception e){
             e.printStackTrace();
         }
 
