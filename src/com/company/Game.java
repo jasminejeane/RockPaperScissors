@@ -17,10 +17,25 @@ public class Game extends GameItems {
     public void play(){
         playerChoice = player.getChoice();
         computerChoice = computer.getChoice();
+        result = getResults();
 
     }
 
-    public RESULT getResult(){
+    private displayResults(){
+        switch (result){
+            case WIN:
+                System.out.println(playerChoice + " beats" + computerChoice + ". Player Wins");
+                break;
+            case LOSE:
+                System.out.println(playerChoice + " loses to" + computerChoice + ". Computer Wins");
+                break;
+            case TIE:
+                System.out.println(playerChoice + " equal to" + computerChoice + ". It's a TIE");
+                break;
+        }
+    }
+
+    private RESULT getResults(){
         if(playerChoice == computerChoice){
             return RESULT.TIE;
 
