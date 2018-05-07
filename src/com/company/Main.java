@@ -16,7 +16,7 @@ public class Main {
 
         }
         scan.close();
-        game.displayStats();
+        game.viewHistory();
     }
 }
 

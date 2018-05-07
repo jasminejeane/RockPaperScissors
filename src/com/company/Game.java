@@ -25,14 +25,19 @@ public class Game extends GameItems {
 
     public void play(){
         Scanner scan = new Scanner(System.in);
+//        System.out.println("Enter 1 for playing against computer or Enter 2 for two player game");
         System.out.println("Enter 1 for playing against computer or Enter 2 for two player game");
+
         playerType = scan.nextInt();
+
 
         if(playerType == 1){
             player1Choice = player1.getChoice();player2Choice = computer.getChoice();
-        }else if(playerType == 2){
+        }else if(playerType == 2) {
             player1Choice = player1.getChoice();
-            player2Choice = player2.getChoice();
+        } else{
+            System.out.println("Please enter 1 or 2");
+            play();
         }
 
         result = getResults();
@@ -41,7 +46,7 @@ public class Game extends GameItems {
 
     }
 
-    public void displayStats(){
+    public void viewHistory(){
         System.out.println("You have played "+ (wins + loses + ties));
         System.out.println("You have won " + wins + " times");
         System.out.println("You have lost " + loses + " times");
