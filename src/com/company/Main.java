@@ -8,7 +8,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         Game game = new Game();
         char quit = ' ';
-
+        System.out.println("Welcome to Rock Paper Scissors!");
         try {
             while (quit != 'N') {
                 game.play();

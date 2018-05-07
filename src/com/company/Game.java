@@ -2,7 +2,7 @@ package com.company;
 import java.util.Scanner;
 
 
-public class Game extends GameItems {
+public class Game extends Items {
     private Player player1;
     private Player player2;
     private Computer computer;
@@ -41,16 +41,17 @@ public class Game extends GameItems {
         }
 
         result = getResults();
-        displayResults();
+        results();
         stats();
 
     }
 
     public void viewHistory(){
-        System.out.println("You have played "+ (wins + loses + ties));
-        System.out.println("You have won " + wins + " times");
-        System.out.println("You have lost " + loses + " times");
-        System.out.println("There were " + ties + " ties ..... Thanks for playing!");
+        System.out.println("Played: "+ (wins + loses + ties));
+        System.out.println("Won: " + wins);
+        System.out.println("Lost: " + loses);
+        System.out.println("Ties:" + ties);
+        System.out.println("Thanks for playing");
 
     }
 
@@ -64,7 +65,7 @@ public class Game extends GameItems {
         }
     }
 
-    private void displayResults(){
+    private void results(){
         switch (result){
             case WIN:
                 System.out.println(player1Choice + " beats " + player2Choice + ". Player 1 Wins");

@@ -1,7 +1,7 @@
 package com.company;
 import java.util.Random;
 
-public class Computer extends GameItems{
+public class Computer extends Items{
     private Random rand;
 
     public Computer(){

@@ -3,7 +3,7 @@ package com.company;
 import java.util.Scanner;
 
 
-public class Player extends GameItems {
+public class Player extends Items {
     Scanner scan;
 
     public Player(){
